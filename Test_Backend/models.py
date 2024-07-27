@@ -46,6 +46,7 @@ class ProjectCreate(BaseModel):
     raising_funds: bool = True
     funds_raised: float = 0
     progress: float = 0
+    youtube_url: Optional[str] = None
 
 class Project(ProjectCreate):
     id: str
@@ -54,6 +55,7 @@ class Project(ProjectCreate):
 class Donation(BaseModel):
     project_id: str
     amount: float
+    message: Optional[str] = None
 
 class Token(BaseModel):
     access_token: str

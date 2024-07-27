@@ -1,9 +1,11 @@
-from fastapi import APIRouter, HTTPException, Depends
+from fastapi import APIRouter, Depends, HTTPException
 from fastapi.security import OAuth2PasswordRequestForm
 from models import User, UserCreate, Token
-from auth import get_password_hash, authenticate_user, create_access_token, get_current_user
+from auth import authenticate_user, create_access_token, get_current_user, get_password_hash
 from database import db
+from config import settings
 from datetime import timedelta
+from bson  import ObjectId
 
 router = APIRouter()
 
@@ -27,12 +29,23 @@ async def login(form_data: OAuth2PasswordRequestForm = Depends()):
             detail="Incorrect username or password",
             headers={"WWW-Authenticate": "Bearer"},
         )
-    access_token_expires = timedelta(minutes=30)
+    access_token_expires = timedelta(minutes=settings.ACCESS_TOKEN_EXPIRE_MINUTES)
     access_token = create_access_token(
         data={"sub": user["username"]}, expires_delta=access_token_expires
     )
     return {"access_token": access_token, "token_type": "bearer"}
 
-@router.get("/me", response_model=User)
-async def read_users_me(current_user: User = Depends(get_current_user)):
-    return current_user
+@router.get("/user/investments", response_model=list[dict])
+async def get_user_investments(current_user: User = Depends(get_current_user)):
+    donations = list(db.donations.find({"user_id": current_user.id}))
+    investments = []
+    for donation in donations:
+        project = db.projects.find_one({"_id": ObjectId(donation["project_id"])})
+        if project:
+            investments.append({
+                "project_id": str(project["_id"]),
+                "title": project["title"],
+                "amount_invested": donation["amount"],
+                "date": donation["date"]
+            })
+    return investments

@@ -1,0 +1,94 @@
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #f4f4f4;
+}
+
+.container {
+    display: grid;
+    background: white;
+    grid-template-columns: 1fr 1fr;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    padding: 40px;
+    border-radius: 12px;
+    width: 90%;
+    max-width: 1200px;
+    gap: 40px;
+}
+
+.product-photo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.product-photo img {
+    width: 100%;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.product-details {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 20px;
+}
+
+.product-details h2 {
+    margin-top: 0;
+    color: #333;
+}
+
+.rzp-button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 18px;
+    margin-top: 20px;
+    transition: background-color 0.3s;
+}
+
+.rzp-button:hover {
+    background-color: #45a049;
+}
+
+.progress-bar {
+    width: 100%;
+    max-width: 300px;
+    height: 30px;
+    background-color: #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+    margin-bottom: 20px;
+}
+
+.fill {
+    height: 100%;
+    background-color: #4caf50;
+    width: 0%;
+    transition: width 0.5s;
+}
+
+.input-box {
+    width: 100%;
+    max-width: 250px;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    font-size: 16px;
+    transition: border-color 0.3s;
+}
+
+.input-box:focus {
+    border-color: #4caf50;
+    outline: none;
+}

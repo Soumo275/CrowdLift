@@ -7,6 +7,7 @@
 </head>
 <body>
   <form id="payment-form">
+    <input type="number" id="amt" name="amt" min="1" max="100" step="1" required>
     <button type="button" id="rzp-button">Pay</button>
   </form>
 
@@ -19,7 +20,7 @@
         const response = await fetch('http://localhost:3000/create-order', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ amount: 1000, currency: 'INR' })
+          body: JSON.stringify({ amount: document.getElementById("amt").value, currency: 'INR' })
         });
 
         if (!response.ok) {
@@ -33,7 +34,7 @@
           "key": "rzp_test_18IDwtqFd2UeDl",
           "amount": order.amount,
           "currency": order.currency,
-          "name": "Your Company Name",
+          "name": "Soumyadip",
           "description": "Test Transaction",
           "order_id": order.id,
           "handler": function (response) {

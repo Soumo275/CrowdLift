@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Certificate Depository</title>
+    <style>
+        body {
+            font-family: 'Times New Roman', Times, serif, sans-serif;
+            background-color: #000000;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .container {
+            display: flex;
+            height:85vh
+            flex-wrap: wrap;
+            max-width: 50%;
+            width: 50%;
+            margin: 20px;
+            background-color: #FFF3DA;
+            border: 1px solid #40F8FF;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        .person-details {
+            flex: 1;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .person-details img {
+            max-width: 150px;
+            height: auto;
+            border-radius: 50%;
+        }
+
+        .info-column {
+            flex: 2;
+            padding: 20px;
+            text-align: center;
+        }
+
+        h2 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        p {
+            font-size: 16px;
+            margin-bottom: 10px;
+            color: #555;
+        }
+
+        input[type="file"],
+        input[type="text"],
+        input[type="name"],
+        input[type="email"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+
+        /* Adjust the width of the name input */
+        .name-input {
+            flex: 1;
+            margin-bottom: 20px;
+        }
+
+        /* Adjust the width of the other sections */
+        .other-inputs {
+            flex: 3;
+        }
+        #div1 { 
+			width: auto; 
+			height: 70px; 
+			padding: 10px; 
+			border: 1px solid #aaaaaa; 
+		} 
+    </style>
+</head>
+<body>
+    <div class="container">
+        
+        
+        <div class="info-column">
+            <div class="name-input">
+                <h2>Name of Organization</h2>
+                <input type="text" id="name" name="name" placeholder="Enter name of organization">
+            </div>
+            
+            <div class="other-inputs">
+                <h2>Reference Image/Video</h2>
+                <div id="div1" ondrop="drop(event)"
+		ondragover="allowDrop(event)"> 
+	</div> 
+                <h2>Email Address</h2>
+                <input type="email" id="email" name="email" placeholder="Enter email address">
+                <div class="name-input">
+                    <h2>Contact Number</h2>
+                    <input type="text" id="phone" name="phone" placeholder="Phone number">
+                    <h2>Location</h2>
+                    <input type="text" id="location" name="location" placeholder="Location input">
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="main.js"></script>
+</body>
+</html>

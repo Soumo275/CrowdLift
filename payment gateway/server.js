@@ -18,7 +18,7 @@ app.post('/create-order', async (req, res) => {
   const { amount, currency } = req.body;
 
   const options = {
-    amount: amount * 100, // amount in the smallest currency unit
+    amount: amount*100, // amount in the smallest currency unit
     currency,
   };
 

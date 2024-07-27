@@ -4,15 +4,49 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Razorpay Payment Gateway</title>
-</head>
-<body>
+  <style>
+    .progress-bar {
+      width: 100%;
+      max-width: 500px;
+      height: 30px;
+      background-color: #ddd;
+      border-radius: 5px;
+      overflow: hidden;
+      margin-bottom: 20px;
+    }
+
+    .fill {
+        height: 100%;
+        background-color: #4caf50;
+        width: 0%;
+        transition: width 0.3s;
+    }
+  </style>
+  </head>
+  <body>
+
+  <!-- progress bar  -->
+  <div class="progress-bar">
+    <div class="fill" id="fill"></div>
+  </div>
+
+
+
+
   <form id="payment-form">
-    <input type="number" id="amt" name="amt" min="1" max="100" step="1" required>
+    <!--  input amount  -->
+    <input type="number" id="amt" name="amt" required>
+
+    <!-- payment button -->
     <button type="button" id="rzp-button">Pay</button>
   </form>
 
   <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
   <script>
+
+    var total=0;
+
+
     document.getElementById('rzp-button').onclick = async function (e) {
       e.preventDefault();
       
@@ -38,7 +72,8 @@
           "description": "Test Transaction",
           "order_id": order.id,
           "handler": function (response) {
-            alert(`Payment successful! Payment ID: ${response.razorpay_payment_id}`);
+            alert(`Payment successful! Payment ID: ${response.razorpay_payment_id} and amount : ${document.getElementById("amt").value}`);
+            increaseValue(document.getElementById("amt").value);
           },
           "prefill": {
             "name": "Customer Name",
@@ -60,6 +95,23 @@
         console.error('Error:', error);
       }
     }
+
+      let currentValue = 0;
+      const maxValue = 1000; // Adjust this to set the maximum value of the bar
+
+      function increaseValue(amt) {
+          if (currentValue < maxValue) {
+
+              currentValue += amt; // Adjust this to change the amount added
+              const fillElement = document.getElementById('fill');
+              const valueElement = document.getElementById('current-value');
+              const percentage = (currentValue / maxValue) * 100;
+
+              fillElement.style.width = percentage + '%';
+              valueElement.textContent = currentValue;
+          }
+      }
+
   </script>
 </body>
 </html>

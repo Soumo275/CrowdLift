@@ -5,7 +5,7 @@ body {
     align-items: center;
     height: 100vh;
     margin: 0;
-    background-color: #f4f4f4;
+    background-color: #e9d7e9;
 }
 
 .container {
@@ -57,7 +57,7 @@ body {
 }
 
 .rzp-button:hover {
-    background-color: #45a049;
+    background-color: #477c4a;
 }
 
 .progress-bar {
@@ -85,10 +85,10 @@ body {
     border-radius: 8px;
     background-color: #f9f9f9;
     font-size: 16px;
-    transition: border-color 0.3s;
+    transition: border-color 0.1s;
 }
 
 .input-box:focus {
-    border-color: #4caf50;
+    border-color: #f89437;
     outline: none;
 }

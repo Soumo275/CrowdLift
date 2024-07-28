@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Certificate Depository</title>
+    <link rel="stylesheet" href="style_form.css">
+</head>
+<body>
+    <div class="container">
+        <h1 class="info-heading">SHARE YOUR IDEA</h1>
+        <div class="info-column">
+            <div class="name-input">
+                <section>
+                    <h2>Project Title</h2>
+                    <input class="animation" type="text" id="name" name="name" placeholder="Enter Project Title">
+                </section>
+            </div>
+            <section>
+                <h2>Email Address</h2>
+                <input class="animation" type="email" id="email" name="email" placeholder="Enter email address">
+            </section>
+            <section>
+                <h2>Contact Number</h2>
+                <input class="animation" id="phone" name="phone" type="tel" placeholder="Phone number" pattern="\d{10}" inputmode="numeric" maxlength="10" required>
+            </section>
+            <section>
+                <h2>Fund Required</h2>
+                <input class="animation" id="fund" name="fund" type="tel" placeholder="Enter Amount Rs." pattern="\d{10}" inputmode="numeric" maxlength="10" required>
+            </section>
+            <section>
+                <h2>Pitch Category</h2>
+                <input class="animation" type="text" id="Pitch_category" name="Pitch_cat" placeholder="Category">
+            </section>
+            <section>
+                <h2>Description</h2>
+                <textarea class="animation" id="description" name="description" rows="7" cols="50" class="description" placeholder="Describe Here"></textarea>
+            </section>
+        </div>
+        <section>
+            <div class="other-inputs">
+                <h2>Reference Image/Video link</h2>
+                <div class="animation" id="div1" ondrop="drop(event)" ondragover="allowDrop(event)" placeholder="PASTE THE CONTENT HERE"></div>
+                <input type="file" id="myfile" name="myfile"><br><br>
+            </div>
+        </section>
+        <a href="index.html">  <button class="submit-button" type="submit">Submit</button></a>
+    </div>
+
+    <script>
+        // Restrict input to digits and limit to 10 characters
+        document.getElementById('phone').addEventListener('input', function (e) {
+            this.value = this.value.replace(/\D/g, '').slice(0, 10);
+        });
+
+        // Restrict input to digits and limit to 10 characters for fund required
+        document.getElementById('fund').addEventListener('input', function (e) {
+            this.value = this.value.replace(/\D/g, '').slice(0, 10);
+        });
+
+        const the_animation = document.querySelectorAll('.animation');
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('scroll-animation');
+                } else {
+                    entry.target.classList.remove('scroll-animation');
+                }
+            });
+        }, { threshold: 0.5 });
+
+        for (let i = 0; i < the_animation.length; i++) {
+            const elements = the_animation[i];
+            observer.observe(elements);
+        }
+    </script>
+</body>
+</html>

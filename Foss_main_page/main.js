@@ -233,3 +233,9 @@ function drop(ev) {
     var data = ev.dataTransfer.getData("text"); 
     ev.target.appendChild(document.getElementById(data)); 
 } 
+
+
+// FORM JS----------------------------------------------------------------
+document.getElementById('phone').addEventListener('input', function (e) {
+    this.value = this.value.replace(/\D/g, '');
+});

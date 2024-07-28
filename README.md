@@ -20,7 +20,7 @@ CrowdLift is a platform where innovators can raise funds for their open-source p
 ## Features
 - **Frontend**: Built using HTML, CSS, and JavaScript for a responsive and interactive user interface.
 - **Backend**: Developed with FastAPI and MongoDB to handle API requests and manage data efficiently.
-- **Payment Gateway**: Integrated for handling transactions securely.
+- **Payment Gateway**: Integrated RazorPay for handling transactions securely.
 - **ML Chatbot**: Trained using the RAG (Retrieval-Augmented Generation) technique to assist users with queries and support.
 
 ## Tech Stack
@@ -34,7 +34,7 @@ CrowdLift is a platform where innovators can raise funds for their open-source p
 - MongoDB
 
 ### Payment Gateway
-- Integration scripts (specify the gateway if possible)
+- Using Razorpay PaymentSDK
 
 ### Machine Learning Chatbot
 - RAG (Retrieval-Augmented Generation) technique

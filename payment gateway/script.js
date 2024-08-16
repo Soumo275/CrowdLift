@@ -16,7 +16,7 @@ document.getElementById('rzp-button').onclick = async function (e) {
     console.log('Order created:', order);
 
     const options = {
-      "key": "rzp_test_18IDwtqFd2UeDl",
+      "key": "OWN_KEY",
       "amount": order.amount,
       "currency": order.currency,
       "name": "Soumyadip",

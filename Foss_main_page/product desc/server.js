@@ -8,8 +8,8 @@ app.use(bodyParser.json());
 app.use(cors());
 
 const razorpay = new Razorpay({
-    key_id: 'rzp_test_18IDwtqFd2UeDl',
-    key_secret: 'jP5jUVTGv09AAyDnQHV6P6bw',
+    key_id: 'OWN_KEY',
+    key_secret: 'OWN_KEY',
 });
 
 
